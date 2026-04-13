@@ -1,0 +1,123 @@
+:root {
+    --primary: #0f172a; 
+    --accent: #3b82f6; 
+    --success: #10b981;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --border: #e2e8f0;
+    --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+
+
+html, body {
+  height: 100%;
+}
+
+body { 
+  background-color: var(--bg-color); 
+  color: var(--text-main); 
+  margin: 0;
+  padding: 0;
+}
+
+.container { background: var(--bg-color); width: 100%; max-width: 1200px; margin: auto; }
+
+header { text-align: center; margin-bottom: 20px; }
+h1 { color: var(--primary); font-size: 2.2rem; }
+
+/* Controls */
+.search-box { display: flex; gap: 10px; margin-bottom: 20px; background: var(--card-bg); padding: 15px; border-radius: var(--radius); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+input, .large-select { flex: 1; padding: 12px; border: 2px solid var(--border); border-radius: 6px; font-size: 16px; }
+button { padding: 12px 20px; background-color: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; transition: 0.2s; }
+button:hover { background-color: var(--accent); }
+.nav-btn { background-color: var(--success); width: 100%; margin-top: 10px; font-size: 13px;}
+.nav-btn:hover { background-color: #059669; }
+
+/* Layouts */
+.dashboard { display: flex; flex-direction: column; gap: 20px; }
+.grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.map-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+@media (max-width: 900px) { .grid-two, .map-layout { grid-template-columns: 1fr; } }
+
+/* Cards */
+.card { background: var(--card-bg); padding: 20px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+h2, h3 { color: var(--primary); margin-bottom: 5px; }
+.subtitle { color: #64748b; font-size: 14px; margin-bottom: 15px; }
+
+/* Intel & History */
+.intel-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 10px; }
+.time-display { font-size: 24px; color: var(--accent); font-family: monospace; }
+.scroll-box { height: 100px; overflow-y: auto; color: #475569; font-size: 15px; line-height: 1.5; padding-right: 10px; }
+
+/* Map & List */
+#map { height: 450px; width: 100%; border-radius: var(--radius); border: 2px solid var(--border); z-index: 1; }
+.uni-scroll-box { height: 450px; overflow-y: auto; padding-right: 5px; }
+.uni-item { background: var(--bg-color); padding: 15px; margin-bottom: 10px; border-radius: 6px; border-left: 4px solid var(--primary); }
+.uni-item h4 { color: var(--primary); margin-bottom: 5px; font-size: 15px; }
+
+/* Utilities */
+.hidden { display: none !important; }
+.loader { border: 4px solid #f1f5f9; border-top: 4px solid var(--accent); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+.alert { padding: 15px; text-align: center; border-radius: var(--radius); background: #fee2e2; color: #b91c1c; font-weight: bold; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Overlay */
+.dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.content {
+  position: absolute;   /* absolute positioning inside hero */
+  top: 50px;            /* distance from top of hero */
+  left: 50%;            /* horizontal center */
+  transform: translateX(-50%); /* center horizontally */
+  z-index: 1;
+  color: white;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;            /* spacing between elements */
+}
+}
+
+/* Button */
+.content button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  background: #00bcd4;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
